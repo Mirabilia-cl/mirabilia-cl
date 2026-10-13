@@ -1,0 +1,979 @@
+/* ==========================================================================
+   1. VARIABLES & PALETA CORPORATIVA DE LUJO (MIRABILIA)
+   ========================================================================== */
+:root {
+  /* Paleta Oficial */
+  --color-ivory: #F2EBDD;        /* Fondo claro y textos sobre oscuro */
+  --color-sage: #78947F;         /* Acentos suaves y estados sutiles */
+  --color-emerald: #185844;      /* Primario elegante */
+  --color-forest: #102F27;       /* Fondo profundo luxury / Hero / Header */
+  --color-gold: #B08A4F;         /* Dorado envejecido / Acentos y bordes */
+  --color-gold-light: #D4B279;   /* Dorado iluminado para hover */
+  --color-gold-muted: rgba(176, 138, 79, 0.25);
+
+  /* Variantes de soporte UI */
+  --color-bg-light: #FAF7F2;     /* Superficie luminosa para tarjetas */
+  --color-text-dark: #12211C;    /* Texto principal en fondo claro */
+  --color-text-muted: #53645D;   /* Texto secundario en fondo claro */
+  --color-border-light: rgba(16, 47, 39, 0.08);
+
+  /* Tipografías */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Transiciones & Sombras */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 4px 20px rgba(16, 47, 39, 0.05);
+  --shadow-luxury: 0 16px 36px rgba(16, 47, 39, 0.12);
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+}
+
+/* Reset y base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Tipografía Base */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+p {
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout Utilities */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-narrow {
+  width: 90%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--color-forest);
+  margin-bottom: 0.8rem;
+}
+
+.gold-divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 0 auto 1.2rem auto;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   2. ANNOUNCEMENT BAR & HEADER / NAVIGATION
+   ========================================================================== */
+.top-announcement {
+  background-color: var(--color-emerald);
+  color: var(--color-ivory);
+  text-align: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
+.header {
+  background-color: var(--color-forest);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.nav-container {
+  width: 92%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+}
+
+/* Logotipo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 50%;
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  letter-spacing: 0.22em;
+  color: var(--color-ivory);
+  font-weight: 600;
+}
+
+.logo-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+/* Menú & Enlaces */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+.nav-link {
+  color: var(--color-ivory);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-gold);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--color-gold-light);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-ivory);
+  margin: 5px 0;
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   3. BOTONES & CTA
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(176, 138, 79, 0.35);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-gold);
+  color: var(--color-ivory);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-gold);
+  color: var(--color-forest);
+}
+
+.btn-ghost {
+  color: var(--color-ivory);
+  border-bottom: 1px solid var(--color-gold);
+  padding: 0.85rem 0.5rem;
+  border-radius: 0;
+}
+
+.btn-ghost:hover {
+  color: var(--color-gold);
+  padding-left: 0.8rem;
+}
+
+.btn-card {
+  width: 100%;
+  background-color: transparent;
+  color: var(--color-forest);
+  border: 1px solid var(--color-forest);
+  padding: 0.75rem 1rem;
+}
+
+.btn-card:hover {
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero {
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(24, 88, 68, 0.45) 0%, rgba(16, 47, 39, 0.95) 70%);
+  pointer-events: none;
+}
+
+.hero-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold-muted);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  color: var(--color-ivory);
+  max-width: 780px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  max-width: 620px;
+  color: rgba(242, 235, 221, 0.85);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   5. SECCIÓN SERVICIOS & TABS
+   ========================================================================== */
+.services {
+  background-color: var(--color-bg-light);
+}
+
+.services-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.tab-btn {
+  background: none;
+  border: 1px solid var(--color-border-light);
+  background-color: #fff;
+  color: var(--color-forest);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.65rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  border-color: var(--color-forest);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-subtle);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-luxury);
+  border-color: var(--color-gold-muted);
+}
+
+.service-card.card-featured {
+  border: 1.5px solid var(--color-gold);
+  background: linear-gradient(180deg, #ffffff 0%, #FAF8F3 100%);
+}
+
+.card-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: var(--color-gold);
+  color: var(--color-forest);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.service-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-sage);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.service-name {
+  font-size: 1.55rem;
+  color: var(--color-forest);
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.service-desc em {
+  font-size: 0.8rem;
+  color: var(--color-sage);
+}
+
+.service-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(16, 47, 39, 0.12);
+  margin-bottom: 1.2rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.service-price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-emerald);
+}
+
+.card-addon {
+  background-color: #F8FAF8;
+  border-style: dashed;
+}
+
+/* ==========================================================================
+   6. POLÍTICAS DE RESERVA (ACORDEÓN)
+   ========================================================================== */
+.policies {
+  background-color: var(--color-ivory);
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(176, 138, 79, 0.2);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.6rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.accordion-icon-num {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  background-color: rgba(176, 138, 79, 0.12);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.accordion-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--color-forest);
+  border-bottom: 2px solid var(--color-forest);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-arrow {
+  transform: rotate(-135deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.accordion-content.open {
+  max-height: 250px;
+  padding: 0 1.6rem 1.5rem 1.6rem;
+}
+
+/* ==========================================================================
+   7. CUIDADOS POSTERIORES (TABS & CARDS)
+   ========================================================================== */
+.aftercare {
+  background-color: var(--color-bg-light);
+}
+
+.aftercare-tabs-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.aftercare-tabs {
+  display: flex;
+  border-bottom: 2px solid rgba(16, 47, 39, 0.08);
+  margin-bottom: 2rem;
+}
+
+.aftercare-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.aftercare-tab-btn.active {
+  color: var(--color-forest);
+}
+
+.aftercare-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+.aftercare-panel {
+  display: none;
+}
+
+.aftercare-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+.aftercare-card {
+  background: #ffffff;
+  padding: 2.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-subtle);
+}
+
+.aftercare-card-title {
+  font-size: 1.4rem;
+  color: var(--color-forest);
+  margin-bottom: 1.5rem;
+}
+
+.care-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.care-list li {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--color-text-dark);
+}
+
+.care-bullet {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.aftercare-pro-tip {
+  background-color: var(--color-ivory);
+  border-left: 3px solid var(--color-gold);
+  padding: 1.2rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.88rem;
+  color: var(--color-forest);
+}
+
+.tip-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.footer {
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  padding: 4.5rem 0 1.5rem 0;
+  border-top: 1px solid rgba(176, 138, 79, 0.25);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-logo {
+  margin-bottom: 1.2rem;
+}
+
+.footer-bio {
+  color: rgba(242, 235, 221, 0.75);
+  font-size: 0.9rem;
+  max-width: 420px;
+}
+
+.footer-links h4 {
+  color: var(--color-gold);
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links p {
+  font-size: 0.88rem;
+  color: rgba(242, 235, 221, 0.85);
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(242, 235, 221, 0.08);
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(242, 235, 221, 0.6);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-to-top {
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-gold);
+  color: var(--color-forest);
+}
+
+/* ==========================================================================
+   9. MODAL RESERVA WHATSAPP DINÁMICO
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(16, 47, 39, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 1.2rem;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-window {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gold);
+  width: 100%;
+  max-width: 480px;
+  padding: 2.2rem;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-backdrop.active .modal-window {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-header {
+  margin-bottom: 1.8rem;
+}
+
+.modal-kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: var(--color-forest);
+  margin-top: 0.2rem;
+}
+
+.modal-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-forest);
+  margin-bottom: 0.4rem;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(16, 47, 39, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  background-color: #FAF8F5;
+  color: var(--color-text-dark);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: var(--color-gold);
+  background-color: #ffffff;
+}
+
+.modal-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--color-ivory);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN (MOBILE-FIRST ADAPTATIONS)
+   ========================================================================== */
+@media (max-width: 868px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: calc(100vh - 72px);
+    background-color: var(--color-forest);
+    flex-direction: column;
+    padding: 2.5rem 1.8rem;
+    transition: right 0.35s ease;
+    border-left: 1px solid rgba(176, 138, 79, 0.2);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  .nav-cta {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .aftercare-tabs {
+    flex-direction: column;
+  }
+}
